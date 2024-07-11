@@ -9,4 +9,16 @@ if(salario_gerente>salario_subgerente>salario_empleada):
     print("Esta correcto")
 else:
     print("Incorrecto")
+#Determinar becado
+print("Sistema de becas")
+km = int (input("Kilometros hasta la institucion: "))
+print("Km: " + str(km))
+cant_hermanos = int(input("Cantidad de hermanos: "))
+print("Cant. hermanos: " + str(cant_hermanos))
+salario = int(input("Salario familiar mensual: $"))
+print("Salario mensual: $" + str(salario))
+if(km>40 and cant_hermanos>2 and salario<20000):
+    print ("Estas becado")
+else:
+    print("No estaras becado / no cumple condiciones")
     
