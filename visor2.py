@@ -1,11 +1,11 @@
-# Importamos las librerías necesarias
+#Librerias necesarias
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
 
 class ImageViewer:
     def __init__(self, master):
-        # Inicializamos la ventana principal
+        #Ventana contenedora o principal
         self.master = master
         self.master.title("Visualizador de imágenes")
         self.zoom_factor_1 = 1.0
@@ -15,35 +15,35 @@ class ImageViewer:
         self.start_x = None
         self.start_y = None
 
-        # Asociamos el evento de rueda del ratón a la función de zoom
+        # Asociacion de evento rueda
         self.master.bind("<MouseWheel>", self.zoom_with_mouse_wheel)
 
-        # Botones para abrir imágenes
+        #Pb para abrir imagenes
         self.btn_open_1 = tk.Button(master, text="Abrir imagen 1", command=lambda: self.open_image(1))
         self.btn_open_1.pack(side="left", padx=(5, 10), pady=10)
 
         self.btn_open_2 = tk.Button(master, text="Abrir imagen 2", command=lambda: self.open_image(2))
         self.btn_open_2.pack(side="left", padx=(5, 10), pady=10)
 
-        # Creamos un marco para los elementos
+        #Creacion del frame
         self.frame = tk.Frame(master)
         self.frame.pack()
 
-        # Barras de desplazamiento
+        #Desplazamientos
         self.scrollbar_y = tk.Scrollbar(self.frame, orient="vertical")
         self.scrollbar_y.pack(side="right", fill="y")
 
         self.scrollbar_x = tk.Scrollbar(self.frame, orient="horizontal")
         self.scrollbar_x.pack(side="bottom", fill="x")
 
-        # Creación de los canvas para las imágenes
+        # canvas para images
         self.canvas_1 = tk.Canvas(self.frame, yscrollcommand=self.scrollbar_y.set, xscrollcommand=self.scrollbar_x.set)
         self.canvas_1.pack(side="left", expand=True, fill="both")
 
         self.canvas_2 = tk.Canvas(self.frame, yscrollcommand=self.scrollbar_y.set, xscrollcommand=self.scrollbar_x.set)
         self.canvas_2.pack(side="left", expand=True, fill="both")
 
-        # Etiquetas para las imágenes
+        #etiquetas
         self.label_1 = tk.Label(master, text="Imagen 1")
         self.label_1.pack(side="left", padx=5)
 
@@ -54,7 +54,7 @@ class ImageViewer:
         self.btn_draw = tk.Button(master, text="Dibujar", command=self.toggle_drawing)
         self.btn_draw.pack(side="top")
 
-        # Botón para salir
+        # pb quit
         self.btn_exit = tk.Button(master, text="Salir", command=master.quit)
         self.btn_exit.pack(pady=10)
 
@@ -126,7 +126,7 @@ class ImageViewer:
             self.canvas_2.create_image(0, 0, anchor="nw", image=photo_2)
             self.canvas_2.image = photo_2
 
-        self.update_mastil()  # Llamamos a la función para actualizar el mástil
+        self.update_mastil()  #Solucionar
 
     def update_mastil(self):
         x1, y1, x2, y2 = self.canvas_1.bbox("all")
